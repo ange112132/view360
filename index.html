@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+
+            text-align: center;
+        }
+
+        canvas {
+            border: 1px solid #eee;
+            width: 20%;
+        }
+        p{
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>sprite</p>
+    <canvas class="sprite" width="400" height="400"></canvas>
+    <p>multi</p>
+    <canvas class="multi" width="400" height="400"></canvas>
+
+    <script src="./js/view360.js"></script>
+    <script>
+        const imgSourceSprite = { 0: './images/run-cat_sprite.png' },
+            imgSourceMulti = {
+            0: './images/360/run-cat-01.png',
+            1: './images/360/run-cat-02.png',
+            2: './images/360/run-cat-03.png',
+            3: './images/360/run-cat-04.png',
+            4: './images/360/run-cat-05.png',
+            5: './images/360/run-cat-06.png',
+        };
+        
+        let canvaSprite = new View360('.sprite', {
+            img: imgSourceSprite, // images source
+            imgHeight: window.innerWidth, // canvas height
+            imgWidth: window.innerWidth, // canvas width
+            scrub: 3, // scrub 1 ~ 30
+            dir: 1, // direction 1 or -1
+            
+            isSprite: true, // default false
+            
+            // isSprite is true
+            sprite : {
+                row: 3,
+                col: 2
+            }
+        });
+        let canvasMulti = new View360('.multi', {
+            img: imgSourceMulti,
+            imgHeight: window.innerWidth,
+            imgWidth: window.innerWidth,
+            // isSprite: true,
+            scrub: 3,
+            dir: 1,
+        });
+
+        // prototype
+        // canvaSprite.onChangeSoure(url)
+
+    </script>
+</body>
+
+</html>
